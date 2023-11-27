@@ -55,6 +55,7 @@ namespace Crud_mysql
             MySqlConnection connection = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Parameters.Add("@StudentID", MySqlDbType.VarChar).Value = id;
             cmd.Parameters.Add("@StudentName", MySqlDbType.VarChar).Value = std.Name;
             cmd.Parameters.Add("@StudentReg", MySqlDbType.VarChar).Value = std.Reg;
             cmd.Parameters.Add("@StudentClass", MySqlDbType.VarChar).Value = std.Class;
@@ -100,6 +101,7 @@ namespace Crud_mysql
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
             DataTable tbl = new DataTable();
             adp.Fill(tbl);
+            dgv.DataSource = tbl;
             connection.Close();
         }
     }

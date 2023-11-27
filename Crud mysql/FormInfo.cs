@@ -13,11 +13,29 @@ namespace Crud_mysql
     public partial class FormInfo : Form
     {
         private readonly FormStudent _parent;
+        public string id, name, reg, @class, section;
 
-        public FormInfo(FormStudent _parent)
+        public FormInfo(FormStudent parent)
         {
             InitializeComponent();
-            _parent = (FormStudent)Parent;
+            _parent = parent;
+        }
+
+        public void SaveInfo()
+        {
+            lbltext.Text = "Add Student";
+            btnSave.Text = "Save";
+        }
+
+        public void UpdateInfo()
+        {
+            lbltext.Text = "Update Student";
+            btnSave.Text = "Update";
+            txtName.Text = name;
+            txtReg.Text = reg;
+            txtClass.Text = @class;
+            txtSection.Text = section;
+            
         }
 
         public void Clear()
@@ -63,10 +81,14 @@ namespace Crud_mysql
                 DbStudent.AddStudent(std);
                 Clear();
             }
-            
-
+            if(btnSave.Text == "Update")
+            {
+                Student std = new Student(txtName.Text.Trim(), txtReg.Text.Trim(), txtClass.Text.Trim(), txtSection.Text.Trim());
+                DbStudent.UpdateStudent(std, id);
+            }
+            _parent.Display();
 
         }
-        _parent.Display();
+        
     }
 }

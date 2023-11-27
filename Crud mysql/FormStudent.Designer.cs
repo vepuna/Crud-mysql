@@ -33,10 +33,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtSearch = new System.Windows.Forms.PictureBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.txtSearch = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnNew = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,8 +46,8 @@
             this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -86,43 +86,6 @@
             this.panel2.Size = new System.Drawing.Size(872, 479);
             this.panel2.TabIndex = 0;
             // 
-            // btnNew
-            // 
-            this.btnNew.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btnNew.FlatAppearance.BorderSize = 0;
-            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNew.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnNew.Location = new System.Drawing.Point(34, 30);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(94, 35);
-            this.btnNew.TabIndex = 0;
-            this.btnNew.Text = "New";
-            this.btnNew.UseVisualStyleBackColor = false;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(561, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(245, 29);
-            this.textBox1.TabIndex = 1;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearch.Image = global::Crud_mysql.Properties.Resources.research;
-            this.txtSearch.Location = new System.Drawing.Point(812, 30);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Padding = new System.Windows.Forms.Padding(1);
-            this.txtSearch.Size = new System.Drawing.Size(28, 29);
-            this.txtSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.txtSearch.TabIndex = 2;
-            this.txtSearch.TabStop = false;
-            this.txtSearch.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // dataGridView
             // 
             this.dataGridView.AllowUserToAddRows = false;
@@ -145,7 +108,7 @@
             this.Column6,
             this.Column7});
             this.dataGridView.GridColor = System.Drawing.Color.White;
-            this.dataGridView.Location = new System.Drawing.Point(34, 91);
+            this.dataGridView.Location = new System.Drawing.Point(34, 84);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
@@ -154,33 +117,77 @@
             this.dataGridView.ShowEditingIcon = false;
             this.dataGridView.Size = new System.Drawing.Size(806, 378);
             this.dataGridView.TabIndex = 0;
+            this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearch.Image = global::Crud_mysql.Properties.Resources.research;
+            this.txtSearch.Location = new System.Drawing.Point(812, 30);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Padding = new System.Windows.Forms.Padding(1);
+            this.txtSearch.Size = new System.Drawing.Size(28, 29);
+            this.txtSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.txtSearch.TabIndex = 2;
+            this.txtSearch.TabStop = false;
+            this.txtSearch.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.Location = new System.Drawing.Point(561, 30);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(245, 29);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // btnNew
+            // 
+            this.btnNew.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnNew.FlatAppearance.BorderSize = 0;
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNew.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnNew.Location = new System.Drawing.Point(34, 30);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(94, 35);
+            this.btnNew.TabIndex = 0;
+            this.btnNew.Text = "New";
+            this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // Column1
             // 
+            this.Column1.DataPropertyName = "ID";
             this.Column1.HeaderText = "#";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
+            this.Column2.DataPropertyName = "Name";
             this.Column2.HeaderText = "Name";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
+            this.Column3.DataPropertyName = "Reg";
             this.Column3.HeaderText = "reg";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
+            this.Column4.DataPropertyName = "Class";
             this.Column4.HeaderText = "Class";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
+            this.Column5.DataPropertyName = "Section";
             this.Column5.HeaderText = "Section";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -229,8 +236,8 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearch)).EndInit();
             this.ResumeLayout(false);
 
         }
